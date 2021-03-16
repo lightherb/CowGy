@@ -32,5 +32,6 @@ void loop() {
     Serial.print(y);
     Serial.print('\t');
     Serial.println(z);
+    Serial.println("bird");
   }
 }
