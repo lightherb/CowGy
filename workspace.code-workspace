@@ -3,6 +3,10 @@
 		{
 			"name": "First Project",
 			"path": "First Project"
+		},
+		{
+			"name": "Second Project",
+			"path": "Second Project"
 		}
 	]
 }
