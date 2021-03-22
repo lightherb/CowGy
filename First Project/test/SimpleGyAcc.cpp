@@ -2,7 +2,6 @@
 //--สามารถต่อมือถือกับแอป
 //--ดูค่า acc ทั้ง serial monitor and app
 
-
 // BLE Lib
 #include <ArduinoBLE.h> // library bluetooth
 #include <Arduino_LSM9DS1.h> // library accellerometer
@@ -26,9 +25,9 @@ unsigned long time3;
 unsigned long deltatime3;
 
 //use in platformio
-void BirdAccelerometer1();
+void BirdAccelerometer();
 
-//---___------***---___------***---___------***
+//------------------------------------------------
 void setup()
 {
  
@@ -63,10 +62,8 @@ void setup()
   //  Serial.println("Ready to start");
 }
 
-//---___------***---___------***---___------***
+//---------------------------------------------------
 void loop() {
-
-  //End OLED loop
 
   //list central
   BLEDevice central = BLE.central();
@@ -85,7 +82,7 @@ void loop() {
       long currentMillis = millis();
       if (currentMillis - previousMillis >= UPDATE_FREQUENCY) {
         previousMillis = currentMillis;
-        BirdAccelerometer1 ();
+        BirdAccelerometer();
       }
     }
 
@@ -95,30 +92,35 @@ void loop() {
   }
   else {
     Serial.println("not connect monitor");
-    BirdAccelerometer1 ();
+    // BirdAccelerometer1 ();
   }
 }
 
-//---___------***---___------***---___------***
-void BirdAccelerometer1 ()
+//-----------------------------------------------------------
+void BirdAccelerometer()
 {
 
   if (IMU.accelerationAvailable())
   {
     IMU.readAcceleration(AccX, AccY, AccZ);
-    //---------------------new
-//    float angleLevel1 = 180 + ((atan2(AccX, AccY) * 180) / PI); //now 20201027
-    float angleLevel1 = 183 + ((atan2(AccX, AccY) * 180) / PI); //cal +3
-//    float angleLevel1 = ((atan2(AccX, AccY) * 180) / PI);
-    float angleLevel;
-    int angleint;
-//    angleint = (int (angleLevel1 * 100));
-//    angleLevel = float(angleint) / 100;
-    angleint = int(angleLevel1);
-    angleLevel = angleint;
 
-    EAngle.writeValue(angleLevel);
-    Serial.println(angleLevel);
+    //--------Acc V1-----------//
+    Serial.print(AccX);
+    Serial.print('\t');
+    Serial.print(AccY);
+    Serial.print('\t');
+    Serial.println(AccZ);
+    //--------Acc V1-----------//
+
+    // //--------Acc V2-----------//
+    // float angleLevel1 = 183 + ((atan2(AccX, AccY) * 180) / PI); //cal +3
+    // float angleLevel;
+    // int angleint;
+    // angleint = int(angleLevel1);
+    // angleLevel = angleint;
+    // EAngle.writeValue(angleLevel);
+    // Serial.println(angleLevel);
+    // //--------Acc V2-----------//
 
   }
 

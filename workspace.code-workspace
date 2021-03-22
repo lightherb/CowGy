@@ -7,6 +7,10 @@
 		{
 			"name": "Second Project",
 			"path": "Second Project"
+		},
+		{
+			"name": "ULP_Test",
+			"path": "ULP_Test"
 		}
 	]
 }
