@@ -11,6 +11,10 @@
 		{
 			"name": "ULP_Test",
 			"path": "ULP_Test"
+		},
+		{
+			"name": "Test",
+			"path": "Test"
 		}
 	]
 }
