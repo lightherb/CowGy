@@ -15,6 +15,18 @@
 		{
 			"name": "Test",
 			"path": "Test"
+		},
+		{
+			"name": "MKR1000",
+			"path": "MKR1000"
+		},
+		{
+			"name": "LoRa32u4",
+			"path": "LoRa32u4"
+		},
+		{
+			"name": "HeltecLora_Arduino_Framework",
+			"path": "HeltecLora_Arduino_Framework"
 		}
 	]
 }
