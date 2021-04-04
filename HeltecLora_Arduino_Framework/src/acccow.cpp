@@ -13,6 +13,9 @@ MPU6050 mpu6050(Wire);
 #define DI0     26
 #define BAND    433E6
 void setup() {
+    //add for tpl5110
+    pinMode(13, OUTPUT);
+    digitalWrite(13, LOW);
   // put your setup code here, to run once:
   Serial.begin(9600);
   LoRa.setPins(SS, RST, DI0);
@@ -28,7 +31,7 @@ void setup() {
   mpu6050.calcGyroOffsets(true);
 }
 
-void loop() {
+void birdrun() {
   // put your main code here, to run repeatedly:
   mpu6050.update();
   LoRa.beginPacket();
@@ -93,4 +96,13 @@ void loop() {
   Serial.print(";AngZ:");
   Serial.println(mpu6050.getAngleZ());
   delay(2000);
+}
+
+void loop(){
+    birdrun();
+    birdrun();
+    birdrun();
+    Serial.println("go to sleep");
+    digitalWrite(13, HIGH);
+
 }
