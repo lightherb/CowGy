@@ -27,6 +27,10 @@
 		{
 			"name": "HeltecLora_Arduino_Framework",
 			"path": "HeltecLora_Arduino_Framework"
+		},
+		{
+			"name": "FireBeetle_ESP32_E",
+			"path": "FireBeetle_ESP32_E"
 		}
 	]
 }
